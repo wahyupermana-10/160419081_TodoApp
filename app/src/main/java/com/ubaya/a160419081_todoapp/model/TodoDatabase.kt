@@ -19,6 +19,7 @@ abstract class TodoDatabase:RoomDatabase() {
         "tododb"
         ).build()
 
+
         operator fun invoke(context: Context)= instance ?: synchronized(LOCK) {
             instance ?: buildDatabase(context).also {
                 instance = it
