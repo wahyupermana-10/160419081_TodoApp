@@ -22,6 +22,7 @@ abstract class TodoDatabase:RoomDatabase() {
             .addMigrations(MIGRATION_1_2)
             .build()
 
+
         operator fun invoke(context: Context)= instance ?: synchronized(LOCK) {
             instance ?: buildDatabase(context).also {
                 instance = it
