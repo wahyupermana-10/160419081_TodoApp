@@ -1,28 +1,25 @@
 package com.ubaya.a160419081_todoapp.view
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ubaya.a160419081_todoapp.R
-import com.ubaya.a160419081_todoapp.model.Todo
 import com.ubaya.a160419081_todoapp.viewmodel.ListTodoViewModel
 import kotlinx.android.synthetic.main.fragment_todo_list.*
 
 class TodoListFragment : Fragment() {
     private lateinit var viewModel:ListTodoViewModel
-    private var todoListAdapter:TodoListAdapter= TodoListAdapter(arrayListOf(),
+    private val todoListAdapter:TodoListAdapter= TodoListAdapter(arrayListOf(),
         {item -> doClick(item)})
 
-    fun doClick(item:Any){
-        viewModel.clearTask(item as Todo)
+    fun doClick(item: Int){
+        viewModel.updateTodoDone(item)
     }
 
     override fun onCreateView(
